@@ -23,7 +23,7 @@
                         <div id="job-{{ $job->id }}" class="accordion-collapse collapse" aria-labelledby="header-{{ $job->id }}" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <div class="accordion" id="accordionExample-{{ $job->id }}">
-                                    @foreach($job->applications->sortByDesc('referralValue') as $application)
+                                    @forelse($job->applications->sortByDesc('referralValue') as $application)
                                         <div class="accordion-item">
                                             <h2 class="accordion-header" id="header-application-{{ $application->id }}">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#application-{{ $application->id }}" aria-expanded="false" aria-controls="application-{{ $application->id }}">
@@ -50,7 +50,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
+                                    @empty
+                                        <div class="text-center">
+                                            No applications yet :(
+                                        </div>
+                                    @endforelse
                                 </div>
                             </div>
                         </div>
