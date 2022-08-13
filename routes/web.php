@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::post('/application', [\App\Http\Controllers\ApplicationController::class, 'store'])->name('application');

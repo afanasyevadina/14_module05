@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function applications()
+    {
+        return $this->hasMany(ApplicationCompetence::class);
+    }
+
+    public function competences()
+    {
+        return $this->hasMany(Competence::class);
+    }
 }
