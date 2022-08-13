@@ -9,11 +9,20 @@ use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
+    /**
+     * Shows job create form
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function create()
     {
         return view('admin.jobs.create');
     }
 
+    /**
+     * Saving new job with its competences
+     * @param JobRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(JobRequest $request)
     {
         $job = Job::create([

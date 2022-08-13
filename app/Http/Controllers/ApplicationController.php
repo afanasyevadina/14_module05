@@ -8,6 +8,11 @@ use App\Models\Job;
 
 class ApplicationController extends Controller
 {
+    /**
+     * Saving new application for job
+     * @param ApplicationRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(ApplicationRequest $request)
     {
         $job = Job::findOrFail($request->input('job_id'));

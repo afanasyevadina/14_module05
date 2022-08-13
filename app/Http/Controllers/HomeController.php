@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    /**
+     * Shows list of all jobs for user
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index()
     {
         return view('index', [

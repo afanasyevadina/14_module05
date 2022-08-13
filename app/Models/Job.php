@@ -13,12 +13,12 @@ class Job extends Model
 
     public $timestamps = false;
 
-    public function applications()
+    public function applications(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Application::class);
     }
 
-    public function competences()
+    public function competences(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Competence::class);
     }

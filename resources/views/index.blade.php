@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => 'Job Indicator'])
 @section('content')
     <main>
         <div class="container">

@@ -11,17 +11,17 @@ class Application extends Model
 
     protected $guarded = [];
 
-    public function candidate()
+    public function candidate(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Candidate::class)->withDefault();
     }
 
-    public function job()
+    public function job(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Job::class)->withDefault();
     }
 
-    public function applicationCompetences()
+    public function applicationCompetences(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(ApplicationCompetence::class);
     }

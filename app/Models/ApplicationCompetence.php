@@ -11,17 +11,17 @@ class ApplicationCompetence extends Model
 
     protected $guarded = [];
 
-    public function application()
+    public function application(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Application::class)->withDefault();
     }
 
-    public function level()
+    public function level(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Level::class)->withDefault();
     }
 
-    public function competence()
+    public function competence(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Competence::class)->withDefault();
     }

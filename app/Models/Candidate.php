@@ -11,7 +11,7 @@ class Candidate extends Model
 
     protected $guarded = [];
 
-    public function applications()
+    public function applications(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Application::class);
     }
