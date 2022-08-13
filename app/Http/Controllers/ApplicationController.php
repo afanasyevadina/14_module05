@@ -23,6 +23,6 @@ class ApplicationController extends Controller
         foreach ($request->input('competences') ?? [] as $item) {
             $application->applicationCompetences()->create(collect($item)->only(['competence_id', 'level_id'])->toArray());
         }
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Saved!');
     }
 }

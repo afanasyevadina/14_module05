@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/joblist', [\App\Http\Controllers\Admin\HomeController::class, 'index']);
 Route::post('/application', [\App\Http\Controllers\ApplicationController::class, 'store'])->name('application');

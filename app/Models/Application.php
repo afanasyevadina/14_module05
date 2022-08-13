@@ -25,4 +25,11 @@ class Application extends Model
     {
         return $this->hasMany(ApplicationCompetence::class);
     }
+
+    public function getReferralValueAttribute()
+    {
+        return $this->applicationCompetences->map(function ($item) {
+            return $item->level->factor * $item->competence->height;
+        })->sum();
+    }
 }

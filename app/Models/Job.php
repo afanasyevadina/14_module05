@@ -13,7 +13,7 @@ class Job extends Model
 
     public function applications()
     {
-        return $this->hasMany(ApplicationCompetence::class);
+        return $this->hasMany(Application::class);
     }
 
     public function competences()
