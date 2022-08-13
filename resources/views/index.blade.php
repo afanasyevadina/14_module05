@@ -30,7 +30,7 @@
                                                 <select name="competences[{{ $key }}][level_id]" class="form-control @if(old('job_id') == $job->id) @error('competences.' . $key . '.level_id') is-invalid @enderror @endif">
                                                     <option value="">Select</option>
                                                     @foreach($levels as $level)
-                                                        <option value="{{ $level->id }}" {{ old('competences.' . $key . '.level_id') == $level->id ? 'selected' : '' }}>{{ $level->level }}</option>
+                                                        <option value="{{ $level->id }}" {{ old('job_id') == $job->id && old('competences.' . $key . '.level_id') == $level->id ? 'selected' : '' }}>{{ $level->level }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('competences.' . $key . '.level_id')
@@ -42,19 +42,19 @@
                                     @endforeach
                                     <div class="row">
                                         <div class="col-12 mb-4">
-                                            <input type="text" class="form-control @if(old('job_id') == $job->id) @error('name') is-invalid @enderror @endif" name="name" placeholder="Complete Name" value="{{ old('name') }}">
+                                            <input type="text" class="form-control @if(old('job_id') == $job->id) @error('name') is-invalid @enderror @endif" name="name" placeholder="Complete Name" value="{{ old('job_id') == $job->id ? old('name') : '' }}">
                                             @error('name')
                                             <div class="invalid-feedback">{{ $errors->first('name') }}</div>
                                             @enderror
                                         </div>
                                         <div class="col-sm-6 mb-4">
-                                            <input type="email" class="form-control @if(old('job_id') == $job->id) @error('email') is-invalid @enderror @endif" name="email" placeholder="E-mail" value="{{ old('email') }}">
+                                            <input type="email" class="form-control @if(old('job_id') == $job->id) @error('email') is-invalid @enderror @endif" name="email" placeholder="E-mail" value="{{ old('job_id') == $job->id ? old('email') : '' }}">
                                             @error('email')
                                             <div class="invalid-feedback">{{ $errors->first('email') }}</div>
                                             @enderror
                                         </div>
                                         <div class="col-sm-6 mb-4">
-                                            <input type="tel" class="form-control @if(old('job_id') == $job->id) @error('phone') is-invalid @enderror @endif" name="phone" placeholder="Phone number" value="{{ old('phone') }}">
+                                            <input type="tel" class="form-control @if(old('job_id') == $job->id) @error('phone') is-invalid @enderror @endif" name="phone" placeholder="Phone number" value="{{ old('job_id') == $job->id ? old('phone') : '' }}">
                                             @error('phone')
                                             <div class="invalid-feedback">{{ $errors->first('phone') }}</div>
                                             @enderror

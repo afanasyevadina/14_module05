@@ -11,6 +11,8 @@ class Job extends Model
 
     protected $guarded = [];
 
+    public $timestamps = false;
+
     public function applications()
     {
         return $this->hasMany(Application::class);

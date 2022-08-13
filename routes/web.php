@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/joblist', [\App\Http\Controllers\Admin\HomeController::class, 'index']);
 Route::post('/application', [\App\Http\Controllers\ApplicationController::class, 'store'])->name('application');
+
+Route::get('/joblist', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('joblist');
+Route::get('/joblist/create', [\App\Http\Controllers\Admin\JobController::class, 'create'])->name('joblist.create');
+Route::post('/joblist/create', [\App\Http\Controllers\Admin\JobController::class, 'store'])->name('joblist.create');

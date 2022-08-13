@@ -10,4 +10,6 @@ class Level extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public $timestamps = false;
 }
