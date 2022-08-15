@@ -18,7 +18,7 @@ class HomeController extends Controller
             'jobs' => Job::with('applications')
                 ->withCount('applications')
                 ->get()
-                ->sortByDesc(fn($item) => $item->applications->first()?->created_at),
+                ->sortByDesc(fn($item) => $item->applications()->latest()->first()?->created_at),
         ]);
     }
 }

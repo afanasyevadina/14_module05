@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
-            $table->integer('candidate_id')->nullable();
+            $table->foreignId('candidate_id')->nullable()->constrained();
             $table->integer('job_id')->nullable();
+            $table->foreign('job_id')->references('id')->on('jobs');
             $table->timestamps();
         });
     }

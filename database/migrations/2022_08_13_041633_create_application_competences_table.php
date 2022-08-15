@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('application_competences', function (Blueprint $table) {
             $table->id();
-            $table->integer('application_id')->nullable();
+            $table->foreignId('application_id')->nullable()->constrained();
             $table->integer('competence_id')->nullable();
             $table->integer('level_id')->nullable();
             $table->timestamps();
+            $table->foreign('competence_id')->references('id')->on('competences');
+            $table->foreign('level_id')->references('id')->on('levels');
         });
     }
 

@@ -22,11 +22,15 @@ class ApplicationController extends Controller
             'name' => $request->input('name'),
             'phone' => $request->input('phone'),
         ]);
-        $application = $candidate->applications()->create([
+        $application = $candidate->applications()->firstOrCreate([
             'job_id' => $job->id,
         ]);
         foreach ($request->input('competences') ?? [] as $item) {
-            $application->applicationCompetences()->create(collect($item)->only(['competence_id', 'level_id'])->toArray());
+            $application->applicationCompetences()->updateOrCreate([
+                'competence_id' => $item['competence_id'],
+            ], [
+                'level_id' => $item['level_id'],
+            ]);
         }
         return redirect()->back()->with('success', 'Saved!');
     }
